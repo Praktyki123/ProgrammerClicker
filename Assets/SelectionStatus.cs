@@ -36,19 +36,19 @@ public class SelectionStatus : MonoBehaviour
         switch (int.Parse(status.text))
         {
             case 0:
-                item.text = "Skills";
+                item.text = "Skills"; // id = 0
                 break;
             case 1:
-                item.text = "Room";
+                item.text = "Room"; // id = 1
                 break;
             case 2:
-                item.text = "Computer";
+                item.text = "Computer"; // id = 2
                 break;
             case 3:
-                item.text = "Desk";
+                item.text = "Desk"; // id = 3
                 break;
             case 4:
-                item.text = "Chair";
+                item.text = "Chair"; // id = 4
                 break;
         }
     }
