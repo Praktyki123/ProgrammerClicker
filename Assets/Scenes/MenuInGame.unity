@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 290842971}
   - component: {fileID: 290842970}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BackToGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 606657649}
   - component: {fileID: 606657648}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SettingsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 770500665}
   - component: {fileID: 770500664}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BackToGameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 865461563}
   - component: {fileID: 865461566}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BackToMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 926497868}
   - component: {fileID: 926497867}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SettingsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 1308486644}
   - component: {fileID: 1308486643}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BackToMenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
