@@ -6,10 +6,18 @@ using UnityEngine.UI;
 public class Points : MonoBehaviour
 {
     public TextMeshProUGUI scoretext;
+    public TextMeshProUGUI NumberAddingTxt;
+    
     [SerializeField]
-    private int NumberStart, NumberAdding;
+    private int NumberStart;
     private void Start()
     {
+        
+        NumberAddingTxt.text = (PlayerPrefs.GetInt("pointsadd")).ToString();
+        if(NumberAddingTxt.text == 0.ToString())
+        {
+            NumberAddingTxt.text = 1.ToString();
+        }
         NumberStart = PlayerPrefs.GetInt("score");
         scoretext.text = NumberStart.ToString();
     }
@@ -21,12 +29,9 @@ public class Points : MonoBehaviour
 
     public void Score()
     {
-       
    
-            NumberStart = NumberStart + NumberAdding;
+            NumberStart = NumberStart + int.Parse(NumberAddingTxt.text);
             scoretext.text = NumberStart.ToString();
         
-
-
     }
 }
