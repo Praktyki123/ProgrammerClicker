@@ -11,7 +11,11 @@ public class LevelAdding : MonoBehaviour
     public Image SquareThree;
     public Image SquareFour;
     public Image SquareFive;
+    public Button UpgradeBtn;
+    private ColorBlock theColor;
     [SerializeField]
+    private TextMeshProUGUI Punkty;
+    
     private int LevelAdd;
     public int SquareIntOne;
     public int SquareIntTwo;
@@ -29,33 +33,14 @@ public class LevelAdding : MonoBehaviour
     
     private void Start()
     {
+    theColor = GetComponent<Button>().colors;
+    theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+    UpgradeBtn.colors = theColor;
     SquareIntOne = 0;
     SquareIntTwo = 0;
     SquareIntThree = 0;
     SquareIntFour = 0;
     SquareIntFive = 0;
-        /*
-        if (PlayerPrefs.GetInt("SquareIntOne") >= 1)
-        {
-            SquareIntOne = PlayerPrefs.GetInt("SquareIntOne");
-        }
-        if (PlayerPrefs.GetInt("SquareIntTwo") >= 1)
-        {
-            SquareIntTwo = PlayerPrefs.GetInt("SquareIntTwo");
-        }
-        if (PlayerPrefs.GetInt("SquareIntThree") >= 1)
-        {
-            SquareIntThree = PlayerPrefs.GetInt("SquareIntThree");
-        }
-        if (PlayerPrefs.GetInt("SquareIntFour") >= 1)
-        {
-            SquareIntFour = PlayerPrefs.GetInt("SquareIntFour");
-        }
-        if (PlayerPrefs.GetInt("SquareIntFive") >= 1)
-        {
-            SquareIntFive = PlayerPrefs.GetInt("SquareIntFive");
-        }
-        */
     }
     private void Squares(int i)
     {
@@ -82,7 +67,8 @@ public class LevelAdding : MonoBehaviour
     }
     private void Update()
     {
-        if(int.Parse(StatusWyboru.text) == 0)
+
+        if (int.Parse(StatusWyboru.text) == 0)
         {
             Squares(SquareIntOne);
         }
@@ -109,8 +95,13 @@ public class LevelAdding : MonoBehaviour
         switch (int.Parse(StatusWyboru.text))
         {
             case 0:
-                SquareIntOne += 1;
-                PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
+                if(int.Parse(Punkty.text) >= 5)
+                {
+                    Punkty.text = (int.Parse(Punkty.text) - 5).ToString();
+                    SquareIntOne += 1;
+                    PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
+                    
+                }
                 Debug.Log(SquareIntOne);
                 break;
             case 1:
@@ -141,14 +132,11 @@ public class LevelAdding : MonoBehaviour
     }
     public void ClearSquare()
     {
-    
         SquareOne = SquareOne.GetComponent<Image>();
         SquareTwo = SquareTwo.GetComponent<Image>();
         SquareThree = SquareThree.GetComponent<Image>();
         SquareFour = SquareFour.GetComponent<Image>();
         SquareFive = SquareFive.GetComponent<Image>();
     }
-
-   
 
 }
