@@ -33,14 +33,11 @@ public class LevelAdding : MonoBehaviour
     
     private void Start()
     {
-    theColor = GetComponent<Button>().colors;
-    theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-    UpgradeBtn.colors = theColor;
-    SquareIntOne = 0;
-    SquareIntTwo = 0;
-    SquareIntThree = 0;
-    SquareIntFour = 0;
-    SquareIntFive = 0;
+        SquareIntOne = 0;
+        SquareIntTwo = 0;
+        SquareIntThree = 0;
+        SquareIntFour = 0;
+        SquareIntFive = 0;
     }
     private void Squares(int i)
     {
@@ -67,26 +64,56 @@ public class LevelAdding : MonoBehaviour
     }
     private void Update()
     {
-
         if (int.Parse(StatusWyboru.text) == 0)
         {
             Squares(SquareIntOne);
+            if (int.Parse(Punkty.text) < 5)
+            {
+                theColor = GetComponent<Button>().colors;
+                theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+                theColor.pressedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+                theColor.selectedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+                theColor.highlightedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+                UpgradeBtn.colors = theColor;
+            }
+            else
+            {
+                theColor = GetComponent<Button>().colors;
+                theColor.normalColor = new Color(1F, 1F, 1F, 1F);
+                theColor.pressedColor = new Color(1F, 1F, 1F, 1F);
+                theColor.selectedColor = new Color(1F, 1F, 1F, 1F);
+                theColor.highlightedColor = new Color(1F, 1F, 1F, 1F);
+                UpgradeBtn.colors = theColor;
+            }
+
         }
         if (int.Parse(StatusWyboru.text) == 1)
         {
             Squares(SquareIntTwo);
+            theColor = GetComponent<Button>().colors;
+            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            UpgradeBtn.colors = theColor;
         }
         if (int.Parse(StatusWyboru.text) == 2)
         {
             Squares(SquareIntThree);
+            theColor = GetComponent<Button>().colors;
+            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            UpgradeBtn.colors = theColor;
         }
         if (int.Parse(StatusWyboru.text) == 3)
         {
             Squares(SquareIntFour);
+            theColor = GetComponent<Button>().colors;
+            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            UpgradeBtn.colors = theColor;
         }
         if (int.Parse(StatusWyboru.text) == 4)
         {
             Squares(SquareIntFive);
+            theColor = GetComponent<Button>().colors;
+            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            UpgradeBtn.colors = theColor;
         }
 
     }
@@ -100,7 +127,6 @@ public class LevelAdding : MonoBehaviour
                     Punkty.text = (int.Parse(Punkty.text) - 5).ToString();
                     SquareIntOne += 1;
                     PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
-                    
                 }
                 Debug.Log(SquareIntOne);
                 break;
