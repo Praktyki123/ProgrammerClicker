@@ -30,14 +30,26 @@ public class LevelAdding : MonoBehaviour
      * Desk Id=3
      * Chair Id=4
      */
-    
-    private void Start()
+    private void squares_color(int i)
     {
-        SquareIntOne = 0;
-        SquareIntTwo = 0;
-        SquareIntThree = 0;
-        SquareIntFour = 0;
-        SquareIntFive = 0;
+        if (int.Parse(Punkty.text) < i)
+        {
+            theColor = GetComponent<Button>().colors;
+            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.pressedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.selectedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.highlightedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            UpgradeBtn.colors = theColor;
+        }
+        else
+        {
+            theColor = GetComponent<Button>().colors;
+            theColor.normalColor = new Color(1F, 1F, 1F, 1F);
+            theColor.pressedColor = new Color(1F, 1F, 1F, 1F);
+            theColor.selectedColor = new Color(1F, 1F, 1F, 1F);
+            theColor.highlightedColor = new Color(1F, 1F, 1F, 1F);
+            UpgradeBtn.colors = theColor;
+        }
     }
     private void Squares(int i)
     {
@@ -62,58 +74,58 @@ public class LevelAdding : MonoBehaviour
             SquareFive.color = Color.green;
         }
     }
+    private int buying_status(int i, int square)
+    {
+        if (int.Parse(Punkty.text) >= i)
+        {
+            Punkty.text = (int.Parse(Punkty.text) - i).ToString();
+            square += 1;
+        }
+        Debug.Log(square);
+        return square;
+    }
+
+    void Start()
+    {
+        SquareIntOne = PlayerPrefs.GetInt("SquareIntOne");
+        SquareIntTwo = PlayerPrefs.GetInt("SquareIntTwo");
+        SquareIntThree = PlayerPrefs.GetInt("SquareIntThree");
+        SquareIntFour = PlayerPrefs.GetInt("SquareIntFour");
+        SquareIntFive = PlayerPrefs.GetInt("SquareIntFive");
+    }
     private void Update()
     {
+        PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
+        PlayerPrefs.SetInt("SquareIntTwo", SquareIntTwo);
+        PlayerPrefs.SetInt("SquareIntThree", SquareIntThree);
+        PlayerPrefs.SetInt("SquareIntFour", SquareIntFour);
+        PlayerPrefs.SetInt("SquareIntFive", SquareIntFive);
+
         if (int.Parse(StatusWyboru.text) == 0)
         {
             Squares(SquareIntOne);
-            if (int.Parse(Punkty.text) < 5)
-            {
-                theColor = GetComponent<Button>().colors;
-                theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-                theColor.pressedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-                theColor.selectedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-                theColor.highlightedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-                UpgradeBtn.colors = theColor;
-            }
-            else
-            {
-                theColor = GetComponent<Button>().colors;
-                theColor.normalColor = new Color(1F, 1F, 1F, 1F);
-                theColor.pressedColor = new Color(1F, 1F, 1F, 1F);
-                theColor.selectedColor = new Color(1F, 1F, 1F, 1F);
-                theColor.highlightedColor = new Color(1F, 1F, 1F, 1F);
-                UpgradeBtn.colors = theColor;
-            }
+            squares_color(5);
 
         }
         if (int.Parse(StatusWyboru.text) == 1)
         {
             Squares(SquareIntTwo);
-            theColor = GetComponent<Button>().colors;
-            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-            UpgradeBtn.colors = theColor;
+            squares_color(10);
         }
         if (int.Parse(StatusWyboru.text) == 2)
         {
             Squares(SquareIntThree);
-            theColor = GetComponent<Button>().colors;
-            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-            UpgradeBtn.colors = theColor;
+            squares_color(15);
         }
         if (int.Parse(StatusWyboru.text) == 3)
         {
             Squares(SquareIntFour);
-            theColor = GetComponent<Button>().colors;
-            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-            UpgradeBtn.colors = theColor;
+            squares_color(20);
         }
         if (int.Parse(StatusWyboru.text) == 4)
         {
             Squares(SquareIntFive);
-            theColor = GetComponent<Button>().colors;
-            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
-            UpgradeBtn.colors = theColor;
+            squares_color(25);
         }
 
     }
@@ -122,37 +134,19 @@ public class LevelAdding : MonoBehaviour
         switch (int.Parse(StatusWyboru.text))
         {
             case 0:
-                if(int.Parse(Punkty.text) >= 5)
-                {
-                    Punkty.text = (int.Parse(Punkty.text) - 5).ToString();
-                    SquareIntOne += 1;
-                    PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
-                }
-                Debug.Log(SquareIntOne);
+                SquareIntOne = buying_status(5, SquareIntOne);
                 break;
             case 1:
-                SquareIntTwo += 1;
-                PlayerPrefs.SetInt("SquareIntTwo", SquareIntTwo);
-                Debug.Log(SquareIntTwo);
-
+                SquareIntTwo = buying_status(10, SquareIntTwo);
                 break;
             case 2:
-                SquareIntThree += 1;
-                PlayerPrefs.SetInt("SquareIntThree", SquareIntThree);
-                Debug.Log(SquareIntThree);
-
+                SquareIntThree = buying_status(15, SquareIntThree);
                 break;
             case 3:
-                SquareIntFour += 1;
-                PlayerPrefs.SetInt("SquareIntFour", SquareIntFour);
-                Debug.Log(SquareIntFour);
-
+                SquareIntFour = buying_status(20, SquareIntFour);
                 break;
             case 4:
-                SquareIntFive += 1;
-                PlayerPrefs.SetInt("SquareIntFive", SquareIntFive);
-                Debug.Log(SquareIntFive);
-
+                SquareIntFive = buying_status(25, SquareIntFive);
                 break;
         }
     }
