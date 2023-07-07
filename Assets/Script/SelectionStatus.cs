@@ -17,6 +17,7 @@ public class SelectionStatus : MonoBehaviour
     {
         status.text = 0.ToString();
         item.text = "Skills";
+        Debug.Log(PlayerPrefs.GetInt("SquareIntOne"));
     }
 
     public void Dodaj_jeden()

@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 358784545}
   - component: {fileID: 358784544}
   - component: {fileID: 358784543}
+  - component: {fileID: 358784546}
   m_Layer: 5
   m_Name: ResetButton
   m_TagString: Untagged
@@ -497,13 +498,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 42dcf801f00bd42449773c74ae99321f, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 358784546}
+        m_TargetAssemblyTypeName: BtnReset, Assembly-CSharp
+        m_MethodName: ResetAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -547,6 +548,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 358784541}
   m_CullTransparentMesh: 1
+--- !u!114 &358784546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358784541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f614ac5414372504783cb555148b7181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &625839667
 GameObject:
   m_ObjectHideFlags: 0
