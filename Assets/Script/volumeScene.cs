@@ -7,10 +7,12 @@ using UnityEngine.Audio;
 public class volumeScene : MonoBehaviour
 {
     public AudioSource VolumeMusic;
+  
 
     void Start()
     {
         VolumeMusic.volume = PlayerPrefs.GetFloat("MusicVolume");
+     
     }
 
     void Update()

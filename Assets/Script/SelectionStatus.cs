@@ -22,7 +22,7 @@ public class SelectionStatus : MonoBehaviour
 
     public void Dodaj_jeden()
     {
-        if (int.Parse(status.text) < 6)
+        if (int.Parse(status.text) < 4)
         {
             status.text = (int.Parse(status.text) + 1).ToString();
         }
