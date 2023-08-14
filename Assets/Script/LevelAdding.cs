@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelAdding : MonoBehaviour
 {
     public TextMeshProUGUI StatusWyboru;
+    public TextMeshProUGUI Koszt;
     public Image SquareOne;
     public Image SquareTwo;
     public Image SquareThree;
@@ -15,7 +16,7 @@ public class LevelAdding : MonoBehaviour
     private ColorBlock theColor;
     [SerializeField]
     private TextMeshProUGUI Punkty;
-    
+
     private int LevelAdd;
     public int SquareIntOne;
     public int SquareIntTwo;
@@ -74,12 +75,50 @@ public class LevelAdding : MonoBehaviour
             SquareFive.color = Color.green;
         }
     }
+
+    private void koszt_status(int i0, int i1, int i2, int i3, int i4, int i5)
+    {
+        Koszt.text = i0.ToString();
+        squares_color(int.Parse(Koszt.text));
+        if (SquareOne.color == Color.green)
+        {
+            Koszt.text = i1.ToString();
+            squares_color(int.Parse(Koszt.text));
+        }
+        if (SquareTwo.color == Color.green)
+        {
+            Koszt.text = i2.ToString();
+            squares_color(int.Parse(Koszt.text));
+        }
+        if (SquareThree.color == Color.green)
+        {
+            Koszt.text = i3.ToString();
+            squares_color(int.Parse(Koszt.text));
+        }
+        if (SquareFour.color == Color.green)
+        {
+            Koszt.text = i4.ToString();
+            squares_color(int.Parse(Koszt.text));
+        }
+        if (SquareFive.color == Color.green)
+        {
+            Koszt.text = "MAX";
+            theColor = GetComponent<Button>().colors;
+            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.pressedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.selectedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.highlightedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            UpgradeBtn.colors = theColor;
+        }
+    }
     private int buying_status(int i, int square)
     {
         if (int.Parse(Punkty.text) >= i)
         {
+
             Punkty.text = (int.Parse(Punkty.text) - i).ToString();
             square += 1;
+
         }
         Debug.Log(square);
         return square;
@@ -95,6 +134,14 @@ public class LevelAdding : MonoBehaviour
     }
     private void Update()
     {
+        if (Koszt.text == "MAX")
+        {
+            GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            GetComponent<Button>().interactable = true;
+        }
         PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
         PlayerPrefs.SetInt("SquareIntTwo", SquareIntTwo);
         PlayerPrefs.SetInt("SquareIntThree", SquareIntThree);
@@ -104,28 +151,27 @@ public class LevelAdding : MonoBehaviour
         if (int.Parse(StatusWyboru.text) == 0)
         {
             Squares(SquareIntOne);
-            squares_color(5);
-
+            koszt_status(5, 10, 15, 20, 25, 30);
         }
         if (int.Parse(StatusWyboru.text) == 1)
         {
             Squares(SquareIntTwo);
-            squares_color(10);
+            koszt_status(5, 10, 15, 20, 25, 30);
         }
         if (int.Parse(StatusWyboru.text) == 2)
         {
             Squares(SquareIntThree);
-            squares_color(15);
+            koszt_status(5, 10, 15, 20, 25, 30);
         }
         if (int.Parse(StatusWyboru.text) == 3)
         {
             Squares(SquareIntFour);
-            squares_color(20);
+            koszt_status(5, 10, 15, 20, 25, 30);
         }
         if (int.Parse(StatusWyboru.text) == 4)
         {
             Squares(SquareIntFive);
-            squares_color(25);
+            koszt_status(5, 10, 15, 20, 25, 30);
         }
 
     }
@@ -134,19 +180,19 @@ public class LevelAdding : MonoBehaviour
         switch (int.Parse(StatusWyboru.text))
         {
             case 0:
-                SquareIntOne = buying_status(5, SquareIntOne);
+                SquareIntOne = buying_status(int.Parse(Koszt.text), SquareIntOne);
                 break;
             case 1:
-                SquareIntTwo = buying_status(10, SquareIntTwo);
+                SquareIntTwo = buying_status(int.Parse(Koszt.text), SquareIntTwo);
                 break;
             case 2:
-                SquareIntThree = buying_status(15, SquareIntThree);
+                SquareIntThree = buying_status(int.Parse(Koszt.text), SquareIntThree);
                 break;
             case 3:
-                SquareIntFour = buying_status(20, SquareIntFour);
+                SquareIntFour = buying_status(int.Parse(Koszt.text), SquareIntFour);
                 break;
             case 4:
-                SquareIntFive = buying_status(25, SquareIntFive);
+                SquareIntFive = buying_status(int.Parse(Koszt.text), SquareIntFive);
                 break;
         }
     }
