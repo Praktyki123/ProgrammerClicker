@@ -5,9 +5,10 @@ using UnityEngine;
 public class AudioPlay : MonoBehaviour
 {
     public AudioSource audioSound;
+
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
