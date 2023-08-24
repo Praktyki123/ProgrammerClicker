@@ -17,12 +17,11 @@ public class SelectionStatus : MonoBehaviour
     {
         status.text = 0.ToString();
         item.text = "Skills";
-        Debug.Log(PlayerPrefs.GetInt("SquareIntOne"));
     }
 
     public void Dodaj_jeden()
     {
-        if (int.Parse(status.text) < 4)
+        if (int.Parse(status.text) < 6)
         {
             status.text = (int.Parse(status.text) + 1).ToString();
         }
@@ -30,7 +29,7 @@ public class SelectionStatus : MonoBehaviour
     }
     public void Odejmij_jeden()
     {
-        if(int.Parse(status.text) > 0)
+        if (int.Parse(status.text) > 0)
         {
             status.text = (int.Parse(status.text) - 1).ToString();
         }
@@ -54,11 +53,19 @@ public class SelectionStatus : MonoBehaviour
                 ClearSquare();
                 break;
             case 3:
-                item.text = "Desk"; // id = 3
+                item.text = "Bed"; // id = 3
                 ClearSquare();
                 break;
             case 4:
-                item.text = "Chair"; // id = 4
+                item.text = "Desk"; // id = 4
+                ClearSquare();
+                break;
+            case 5:
+                item.text = "Furniture"; // id = 5
+                ClearSquare();
+                break;
+            case 6:
+                item.text = "Decoration"; // id = 6
                 ClearSquare();
                 break;
         }
