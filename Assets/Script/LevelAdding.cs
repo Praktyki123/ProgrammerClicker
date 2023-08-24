@@ -23,13 +23,17 @@ public class LevelAdding : MonoBehaviour
     public int SquareIntThree;
     public int SquareIntFour;
     public int SquareIntFive;
+    public int SquareIntSix;
+    public int SquareIntSeven;
     private int NumberStart;
     /*
-     * Skills Id=0
-     * Room Id=1
-     * Computer Id=2
-     * Desk Id=3
-     * Chair Id=4
+        "Skills" id = 0
+        "Room" id = 1
+        "Computer" id = 2
+        "Bed" id = 3
+        "Desk" id = 4
+        "Furniture" id = 5
+        "Decoration" id = 6
      */
     private void squares_color(int i)
     {
@@ -120,10 +124,37 @@ public class LevelAdding : MonoBehaviour
             square += 1;
 
         }
-        Debug.Log(square);
+
         return square;
     }
-
+    private void CounterLvlItems(string i, string num)
+    {
+        int liczba1 = PlayerPrefs.GetInt(num);
+        if (liczba1 >= 0)
+        {
+            PlayerPrefs.SetInt(i, 0);
+        }
+        if(liczba1 >= 5)
+        {
+            PlayerPrefs.SetInt(i, 1);
+        }
+        if (liczba1 >= 10)
+        {
+            PlayerPrefs.SetInt(i, 2);
+        }
+        if (liczba1 >= 15)
+        {
+            PlayerPrefs.SetInt(i, 3);
+        }
+        if (liczba1 >= 20)
+        {
+            PlayerPrefs.SetInt(i, 4);
+        }
+        if (liczba1 >= 25)
+        {
+            PlayerPrefs.SetInt(i, 5);
+        }
+    }
     void Start()
     {
         SquareIntOne = PlayerPrefs.GetInt("SquareIntOne");
@@ -131,9 +162,21 @@ public class LevelAdding : MonoBehaviour
         SquareIntThree = PlayerPrefs.GetInt("SquareIntThree");
         SquareIntFour = PlayerPrefs.GetInt("SquareIntFour");
         SquareIntFive = PlayerPrefs.GetInt("SquareIntFive");
+        SquareIntSix = PlayerPrefs.GetInt("SquareIntSix");
+        SquareIntSeven = PlayerPrefs.GetInt("SquareIntSeven");
+
+        
     }
     private void Update()
     {
+        PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
+        PlayerPrefs.SetInt("SquareIntTwo", SquareIntTwo);
+        PlayerPrefs.SetInt("SquareIntThree", SquareIntThree);
+        PlayerPrefs.SetInt("SquareIntFour", SquareIntFour);
+        PlayerPrefs.SetInt("SquareIntFive", SquareIntFive);
+        PlayerPrefs.SetInt("SquareIntSix", SquareIntSix);
+        PlayerPrefs.SetInt("SquareIntSeven", SquareIntSeven);
+
         if (Koszt.text == "MAX")
         {
             GetComponent<Button>().interactable = false;
@@ -142,11 +185,22 @@ public class LevelAdding : MonoBehaviour
         {
             GetComponent<Button>().interactable = true;
         }
-        PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
-        PlayerPrefs.SetInt("SquareIntTwo", SquareIntTwo);
-        PlayerPrefs.SetInt("SquareIntThree", SquareIntThree);
-        PlayerPrefs.SetInt("SquareIntFour", SquareIntFour);
-        PlayerPrefs.SetInt("SquareIntFive", SquareIntFive);
+        
+        CounterLvlItems("itemOne", "SquareIntOne");
+        CounterLvlItems("itemTwo", "SquareIntTwo");
+        CounterLvlItems("itemThree", "SquareIntThree");
+        CounterLvlItems("itemFour", "SquareIntFour");
+        CounterLvlItems("itemFive", "SquareIntFive");
+        CounterLvlItems("itemSix", "SquareIntSix");
+        CounterLvlItems("itemSeven", "SquareIntSeven");
+        
+        /* for(int i=0; i <= 5; i++)
+         {
+             int liczba1 = PlayerPrefs.GetInt("SquareIntOne");
+             PlayerPrefs.SetInt("itemOne", );
+         } */
+
+
 
         if (int.Parse(StatusWyboru.text) == 0)
         {
@@ -173,7 +227,16 @@ public class LevelAdding : MonoBehaviour
             Squares(SquareIntFive);
             koszt_status(5, 10, 15, 20, 25, 30);
         }
-
+        if (int.Parse(StatusWyboru.text) == 5)
+        {
+            Squares(SquareIntSix);
+            koszt_status(5, 10, 15, 20, 25, 30);
+        }
+        if (int.Parse(StatusWyboru.text) == 6)
+        {
+            Squares(SquareIntSeven);
+            koszt_status(5, 10, 15, 20, 25, 30);
+        }
     }
     public void AddLevel()
     {
@@ -193,6 +256,12 @@ public class LevelAdding : MonoBehaviour
                 break;
             case 4:
                 SquareIntFive = buying_status(int.Parse(Koszt.text), SquareIntFive);
+                break;
+            case 5:
+                SquareIntSix = buying_status(int.Parse(Koszt.text), SquareIntSix);
+                break;
+            case 6:
+                SquareIntSeven = buying_status(int.Parse(Koszt.text), SquareIntSeven);
                 break;
         }
     }
