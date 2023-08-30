@@ -333,7 +333,6 @@ GameObject:
   m_Component:
   - component: {fileID: 745795704}
   - component: {fileID: 745795703}
-  - component: {fileID: 745795705}
   m_Layer: 0
   m_Name: AudioMusic
   m_TagString: MusicMenu
@@ -452,18 +451,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &745795705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745795702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 042f136cefed87f4fbc8b45bbe597c4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1017924232
 GameObject:
   m_ObjectHideFlags: 0

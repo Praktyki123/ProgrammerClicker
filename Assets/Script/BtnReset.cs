@@ -17,6 +17,7 @@ public class BtnReset : MonoBehaviour
         PlayerPrefs.SetInt("SquareIntFive", 0);
         PlayerPrefs.SetInt("SquareIntSix", 0);
         PlayerPrefs.SetInt("SquareIntSeven", 0);
+        PlayerPrefs.SetInt("SquareIntEight", 0);
 
     }
 }

@@ -7,17 +7,15 @@ using TMPro;
 public class VolumeChange : MonoBehaviour
 {
     public AudioSource VolumeMusic;
-   
     public Slider slider;
-  
    
     void Start()
     {
         slider.value = PlayerPrefs.GetFloat("MusicVolume");
-        
     }
     void Update()
     {
+        
         PlayerPrefs.SetFloat("MusicVolume", slider.value);
         
         

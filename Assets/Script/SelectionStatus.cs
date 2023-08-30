@@ -21,7 +21,7 @@ public class SelectionStatus : MonoBehaviour
 
     public void Dodaj_jeden()
     {
-        if (int.Parse(status.text) < 6)
+        if (int.Parse(status.text) < 7)
         {
             status.text = (int.Parse(status.text) + 1).ToString();
         }
@@ -61,10 +61,14 @@ public class SelectionStatus : MonoBehaviour
                 ClearSquare();
                 break;
             case 5:
-                item.text = "Furniture"; // id = 5
+                item.text = "Chair";
                 ClearSquare();
                 break;
             case 6:
+                item.text = "Furniture"; // id = 5
+                ClearSquare();
+                break;
+            case 7:
                 item.text = "Decoration"; // id = 6
                 ClearSquare();
                 break;

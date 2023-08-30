@@ -25,6 +25,8 @@ public class LevelAdding : MonoBehaviour
     public int SquareIntFive;
     public int SquareIntSix;
     public int SquareIntSeven;
+    public int SquareIntEight;
+    public int LvlSkills;
     private int NumberStart;
     /*
         "Skills" id = 0
@@ -32,8 +34,9 @@ public class LevelAdding : MonoBehaviour
         "Computer" id = 2
         "Bed" id = 3
         "Desk" id = 4
-        "Furniture" id = 5
-        "Decoration" id = 6
+        "Chair" id = 5
+        "Furniture" id = 6
+        "Decoration" id = 7
      */
     private void squares_color(int i)
     {
@@ -164,6 +167,7 @@ public class LevelAdding : MonoBehaviour
         SquareIntFive = PlayerPrefs.GetInt("SquareIntFive");
         SquareIntSix = PlayerPrefs.GetInt("SquareIntSix");
         SquareIntSeven = PlayerPrefs.GetInt("SquareIntSeven");
+        SquareIntEight = PlayerPrefs.GetInt("SquareIntEight");
 
         
     }
@@ -176,6 +180,7 @@ public class LevelAdding : MonoBehaviour
         PlayerPrefs.SetInt("SquareIntFive", SquareIntFive);
         PlayerPrefs.SetInt("SquareIntSix", SquareIntSix);
         PlayerPrefs.SetInt("SquareIntSeven", SquareIntSeven);
+        PlayerPrefs.SetInt("SquareIntEight", SquareIntEight);
 
         if (Koszt.text == "MAX")
         {
@@ -193,7 +198,7 @@ public class LevelAdding : MonoBehaviour
         CounterLvlItems("itemFive", "SquareIntFive");
         CounterLvlItems("itemSix", "SquareIntSix");
         CounterLvlItems("itemSeven", "SquareIntSeven");
-        
+        CounterLvlItems("itemEight", "SquareIntEight");
         /* for(int i=0; i <= 5; i++)
          {
              int liczba1 = PlayerPrefs.GetInt("SquareIntOne");
@@ -205,37 +210,50 @@ public class LevelAdding : MonoBehaviour
         if (int.Parse(StatusWyboru.text) == 0)
         {
             Squares(SquareIntOne);
-            koszt_status(5, 10, 15, 20, 25, 30);
+            //  koszt_status(100, 200, 500, 1000, 2500, 10000);
+            koszt_status(1, 5, 10, 15, 20, 25);
         }
         if (int.Parse(StatusWyboru.text) == 1)
         {
             Squares(SquareIntTwo);
-            koszt_status(5, 10, 15, 20, 25, 30);
+            // koszt_status(10, 25, 100, 250, 500, 1000);
+            koszt_status(1, 5, 10, 15, 20, 25);
         }
         if (int.Parse(StatusWyboru.text) == 2)
         {
             Squares(SquareIntThree);
-            koszt_status(5, 10, 15, 20, 25, 30);
+            //  koszt_status(10, 25, 100, 250, 500, 1000);
+            koszt_status(1, 5, 10, 15, 20, 25);
         }
         if (int.Parse(StatusWyboru.text) == 3)
         {
             Squares(SquareIntFour);
-            koszt_status(5, 10, 15, 20, 25, 30);
+            //  koszt_status(10, 25, 100, 250, 500, 1000);
+            koszt_status(1, 5, 10, 15, 20, 25);
         }
         if (int.Parse(StatusWyboru.text) == 4)
         {
             Squares(SquareIntFive);
-            koszt_status(5, 10, 15, 20, 25, 30);
+            //  koszt_status(10, 25, 100, 250, 500, 1000);
+            koszt_status(1, 5, 10, 15, 20, 25);
         }
         if (int.Parse(StatusWyboru.text) == 5)
         {
             Squares(SquareIntSix);
-            koszt_status(5, 10, 15, 20, 25, 30);
+            //  koszt_status(10, 25, 100, 250, 500, 1000);
+            koszt_status(1, 5, 10, 15, 20, 25);
         }
         if (int.Parse(StatusWyboru.text) == 6)
         {
             Squares(SquareIntSeven);
-            koszt_status(5, 10, 15, 20, 25, 30);
+            //  koszt_status(10, 25, 100, 250, 500, 1000);
+            koszt_status(1, 5, 10, 15, 20, 25);
+        }
+        if (int.Parse(StatusWyboru.text) == 7)
+        {
+            Squares(SquareIntEight);
+            //  koszt_status(10, 25, 100, 250, 500, 1000);
+            koszt_status(1, 5, 10, 15, 20, 25);
         }
     }
     public void AddLevel()
@@ -263,8 +281,12 @@ public class LevelAdding : MonoBehaviour
             case 6:
                 SquareIntSeven = buying_status(int.Parse(Koszt.text), SquareIntSeven);
                 break;
+            case 7:
+                SquareIntEight = buying_status(int.Parse(Koszt.text), SquareIntEight);
+                break;
         }
     }
+   
     public void ClearSquare()
     {
         SquareOne = SquareOne.GetComponent<Image>();
