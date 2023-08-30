@@ -24,4 +24,8 @@ public class SkillsTree : MonoBehaviour
     {
         PlayerPrefs.SetInt("pointsadd", 5);
     }
+    public void SixPointsOnClick()
+    {
+        PlayerPrefs.SetInt("pointsadd", 6);
+    }
 }

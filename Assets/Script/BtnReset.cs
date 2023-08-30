@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BtnReset : MonoBehaviour
 {
-    
-   
+
+
     public void ResetAll()
     {
 
@@ -15,6 +15,9 @@ public class BtnReset : MonoBehaviour
         PlayerPrefs.SetInt("SquareIntThree", 0);
         PlayerPrefs.SetInt("SquareIntFour", 0);
         PlayerPrefs.SetInt("SquareIntFive", 0);
+        PlayerPrefs.SetInt("SquareIntSix", 0);
+        PlayerPrefs.SetInt("SquareIntSeven", 0);
+        PlayerPrefs.SetInt("SquareIntEight", 0);
 
     }
 }
