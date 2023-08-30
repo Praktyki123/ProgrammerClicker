@@ -84,6 +84,8 @@ public class SelectionStatus : MonoBehaviour
         SquareOne.color = Color.red;
         SquareTwo.color = Color.red;
         SquareThree.color = Color.red;
+        SquareFour.color = Color.red;
+        SquareFive.color = Color.red;
     }
 
 }
