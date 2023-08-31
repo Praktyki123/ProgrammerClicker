@@ -38,6 +38,15 @@ public class LevelAdding : MonoBehaviour
         "Furniture" id = 6
         "Decoration" id = 7
      */
+    private void squares_blocked()
+    {
+            theColor = GetComponent<Button>().colors;
+            theColor.normalColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.pressedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.selectedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            theColor.highlightedColor = new Color(0.67F, 0.67F, 0.67F, 0.5F);
+            UpgradeBtn.colors = theColor;
+    }
     private void squares_color(int i)
     {
         if (int.Parse(Punkty.text) < i)
@@ -90,7 +99,6 @@ public class LevelAdding : MonoBehaviour
         if (SquareOne.color == Color.green)
         {
             Koszt.text = i1.ToString();
-            squares_color(int.Parse(Koszt.text));
         }
         if (SquareTwo.color == Color.green)
         {
@@ -171,7 +179,7 @@ public class LevelAdding : MonoBehaviour
 
         
     }
-    private void Update()
+    void Update()
     {
         PlayerPrefs.SetInt("SquareIntOne", SquareIntOne);
         PlayerPrefs.SetInt("SquareIntTwo", SquareIntTwo);
@@ -243,17 +251,27 @@ public class LevelAdding : MonoBehaviour
             //  koszt_status(10, 25, 100, 250, 500, 1000);
             koszt_status(1, 5, 10, 15, 20, 25);
         }
-        if (int.Parse(StatusWyboru.text) == 6)
+        if (int.Parse(StatusWyboru.text) == 6) // furniture
         {
             Squares(SquareIntSeven);
             //  koszt_status(10, 25, 100, 250, 500, 1000);
             koszt_status(1, 5, 10, 15, 20, 25);
         }
-        if (int.Parse(StatusWyboru.text) == 7)
+        if (int.Parse(StatusWyboru.text) == 7) // decoration
         {
             Squares(SquareIntEight);
             //  koszt_status(10, 25, 100, 250, 500, 1000);
-            koszt_status(1, 5, 10, 15, 20, 25);
+
+            if(PlayerPrefs.GetInt("itemSeven") >= 3)
+            {
+                koszt_status(1, 5, 10, 15, 20, 25);
+            }
+            else
+            {
+                squares_blocked();
+                Koszt.text = "Unlock at furniture lvl 3";
+            }
+            
         }
     }
     public void AddLevel()
