@@ -489,6 +489,69 @@ public class PanelLvlImages : MonoBehaviour
                 img0.enabled = false;
             }
         }
-
+        if (IdUpgradeObject == 7)
+        {
+            int ActiveObject = PlayerPrefs.GetInt("itemEight");
+            if (ActiveObject == 0)
+            {
+                img0.enabled = true;
+                img0.transform.position = new Vector2(x0, y0);
+                img1.enabled = false;
+                img2.enabled = false;
+                img3.enabled = false;
+                img4.enabled = false;
+                img5.enabled = false;
+            }
+            if (ActiveObject == 1)
+            {
+                img1.enabled = true;
+                img1.transform.position = new Vector2(x1, y1);
+                img0.enabled = false;
+                img2.enabled = false;
+                img3.enabled = false;
+                img4.enabled = false;
+                img5.enabled = false;
+            }
+            if (ActiveObject == 2)
+            {
+                img2.enabled = true;
+                img2.transform.position = new Vector2(x2, y2);
+                img1.enabled = false;
+                img0.enabled = false;
+                img3.enabled = false;
+                img4.enabled = false;
+                img5.enabled = false;
+            }
+            if (ActiveObject == 3)
+            {
+                img3.enabled = true;
+                img3.transform.position = new Vector2(x3, y3);
+                img1.enabled = false;
+                img2.enabled = false;
+                img0.enabled = false;
+                img4.enabled = false;
+                img5.enabled = false;
+            }
+            if (ActiveObject == 4)
+            {
+                img4.enabled = true;
+                img4.transform.position = new Vector2(x4, y4);
+                img1.enabled = false;
+                img2.enabled = false;
+                img3.enabled = false;
+                img0.enabled = false;
+                img5.enabled = false;
+            }
+            if (ActiveObject == 5)
+            {
+                img5.enabled = true;
+                img5.transform.position = new Vector2(x5, y5);
+                img1.enabled = false;
+                img2.enabled = false;
+                img3.enabled = false;
+                img4.enabled = false;
+                img0.enabled = false;
+            }
+        }
     }
 }
