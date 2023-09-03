@@ -1436,7 +1436,6 @@ GameObject:
   - component: {fileID: 610993733}
   - component: {fileID: 610993735}
   - component: {fileID: 610993737}
-  - component: {fileID: 610993738}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1777,90 +1776,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IdUpgradeObject: 6
   img0: {fileID: 2042222015}
-  img01: {fileID: 0}
+  img01: {fileID: 1387647519}
   x0: 0
   y0: 0
   x01: 0
   y01: 0
   img1: {fileID: 1863182118}
-  img12: {fileID: 0}
+  img12: {fileID: 1724293831}
   x1: 504
   y1: 1054
-  x12: 0
-  y12: 0
+  x12: 502
+  y12: 1063
   img2: {fileID: 74591651}
-  img23: {fileID: 0}
+  img23: {fileID: 1069777395}
   x2: 506
   y2: 1060
-  x23: 0
-  y23: 0
+  x23: 505
+  y23: 1075
   img3: {fileID: 1503882845}
-  img34: {fileID: 0}
+  img34: {fileID: 1185004874}
   x3: 505
   y3: 1057
-  x34: 0
-  y34: 0
+  x34: 505
+  y34: 1073
   img4: {fileID: 1577649510}
-  img45: {fileID: 0}
+  img45: {fileID: 1205760814}
   x4: 503
   y4: 1058
-  x45: 0
-  y45: 0
+  x45: 505
+  y45: 1076
   img5: {fileID: 2032289492}
-  img56: {fileID: 0}
+  img56: {fileID: 1352445845}
   x5: 507
   y5: 1058
-  x56: 0
-  y56: 0
---- !u!114 &610993738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610993726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77bc9fd48ae37948b695d5e354cd81d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IdUpgradeObject: 7
-  img0: {fileID: 1387647519}
-  img01: {fileID: 0}
-  x0: 0
-  y0: 0
-  x01: 0
-  y01: 0
-  img1: {fileID: 1724293831}
-  img12: {fileID: 0}
-  x1: 502
-  y1: 1063
-  x12: 0
-  y12: 0
-  img2: {fileID: 1069777395}
-  img23: {fileID: 0}
-  x2: 503
-  y2: 1068
-  x23: 0
-  y23: 0
-  img3: {fileID: 1185004874}
-  img34: {fileID: 0}
-  x3: 505
-  y3: 1070
-  x34: 0
-  y34: 0
-  img4: {fileID: 1205760814}
-  img45: {fileID: 0}
-  x4: 0
-  y4: 0
-  x45: 0
-  y45: 0
-  img5: {fileID: 1352445845}
-  img56: {fileID: 0}
-  x5: 0
-  y5: 0
-  x56: 0
-  y56: 0
+  x56: 506
+  y56: 1072
 --- !u!1 &689503480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,7 +3349,7 @@ RectTransform:
   m_GameObject: {fileID: 1205760811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2066484855}
@@ -3808,7 +3758,7 @@ RectTransform:
   m_GameObject: {fileID: 1352445844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2066484855}
