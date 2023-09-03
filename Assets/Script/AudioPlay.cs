@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioPlay : MonoBehaviour
 {
     public AudioSource audioSound;
+    public AudioClip clip;
 
     void Start()
     {
@@ -19,6 +20,6 @@ public class AudioPlay : MonoBehaviour
 
     public void playSound()
     {
-        audioSound.Play();
+        audioSound.PlayOneShot(clip);
     }
 }
