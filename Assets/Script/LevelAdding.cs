@@ -271,7 +271,18 @@ public class LevelAdding : MonoBehaviour
                 squares_blocked();
                 Koszt.text = "Unlock at furniture lvl 3";
             }
-            
+            if (PlayerPrefs.GetInt("itemEight") == 4)
+            { 
+                if (PlayerPrefs.GetInt("itemFour") >= 1)
+                {
+                    koszt_status(1, 5, 10, 15, 20, 25);
+                }
+                else
+                {
+                    squares_blocked();
+                    Koszt.text = "Unlock at bed lvl 1";
+                }
+            }
         }
     }
     public void AddLevel()
